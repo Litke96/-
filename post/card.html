@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="top">
+      <span id="section">Фильм</span>
+      <span class="badge" id="index">01 / 11</span>
+    </div>
+    <div class="main">
+      <div class="poster-wrap">
+        <img id="poster" src="" alt="" />
+      </div>
+      <div class="copy">
+        <div class="rating" id="rating">IMDb 8.0</div>
+        <div class="genre" id="genre">Жанр</div>
+        <h2 class="title" id="title">Название</h2>
+        <p class="desc" id="desc">Описание</p>
+        <p class="why" id="why">Почему смотреть</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>Что посмотреть · 2025–2026</span>
+      <span>Сохрани себе</span>
+    </div>
+  </div>
+  <script src="data.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const i = Math.max(0, parseInt(params.get("i") || "0", 10));
+    const item = window.POST_ITEMS[i];
+    if (item) {
+      document.getElementById("section").textContent = item.section;
+      document.getElementById("index").textContent = String(i + 1).padStart(2, "0") + " / " + String(window.POST_ITEMS.length).padStart(2, "0");
+      document.getElementById("poster").src = item.poster;
+      document.getElementById("poster").alt = item.title;
+      document.getElementById("rating").textContent = "IMDb " + item.imdb;
+      document.getElementById("genre").textContent = item.genre;
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("desc").textContent = item.desc;
+      document.getElementById("why").textContent = item.why;
+      document.title = item.title;
+    }
+  </script>
+</body>
+</html>
