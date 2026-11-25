@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Что посмотреть · 2025–2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f3efe6;
+      --bg-deep: #e8e1d3;
+      --ink: #1a1714;
+      --ink-soft: #4a433a;
+      --muted: #7a7164;
+      --line: rgba(26, 23, 20, 0.12);
+      --accent: #b45309;
+      --accent-deep: #7c2d12;
+      --panel: rgba(255, 252, 245, 0.72);
+      --shadow: 0 18px 40px rgba(26, 23, 20, 0.12);
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(180, 83, 9, 0.12), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(124, 45, 18, 0.08), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+    }
+
+    header.hero {
+      display: grid;
+      gap: 1.25rem;
+      padding: 1.5rem 0 2.25rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 2rem;
+      animation: rise 0.7s ease both;
+    }
+
+    .brand {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0;
+      max-width: 14ch;
+    }
+
+    .brand em {
+      font-style: italic;
+      color: var(--accent-deep);
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 36rem;
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+    }
+
+    .chip strong { color: var(--ink); }
+
+    nav.tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0 0 1.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 0.75rem 0;
+      background: linear-gradient(180deg, rgba(243, 239, 230, 0.96), rgba(243, 239, 230, 0.88));
+      backdrop-filter: blur(8px);
+    }
+
+    .tabs a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.55rem 0.9rem;
+      border: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .tabs a:hover,
+    .tabs a:focus-visible {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--panel);
+    }
+
+    section {
+      margin-bottom: 2.75rem;
+      animation: rise 0.8s ease both;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.08s; }
+    section:nth-of-type(3) { animation-delay: 0.16s; }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.1rem;
+    }
+
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    }
+
+    @media (min-width: 980px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    article.poster {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      transition: transform 0.35s ease;
+    }
+
+    article.poster:hover { transform: translateY(-4px); }
+
+    .frame {
+      position: relative;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      background: #d7d0c2;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    article.poster:hover .frame img { transform: scale(1.04); }
+
+    .rating {
+      position: absolute;
+      left: 0.55rem;
+      bottom: 0.55rem;
+      z-index: 2;
+      background: rgba(26, 23, 20, 0.86);
+      color: #fff8ee;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.28rem 0.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    .info h3 {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.25;
+      font-weight: 700;
+    }
+
+    .info .sub {
+      margin: 0.2rem 0 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .copy-block {
+      margin-top: 2.5rem;
+      padding: 1.35rem 1.4rem;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      animation: rise 0.9s ease both;
+      animation-delay: 0.2s;
+    }
+
+    .copy-block h2 {
+      margin: 0 0 0.75rem;
+      font-family: "Fraunces", serif;
+      font-size: 1.35rem;
+    }
+
+    .copy-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    button {
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #f8f4eb;
+      padding: 0.65rem 1rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button.secondary:hover {
+      background: var(--ink);
+      color: #f8f4eb;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <p class="chip"><strong>Подборка</strong> · фильмы и сериалы</p>
+      <h1 class="brand">Что посмотреть <em>2025–2026</em></h1>
+      <p class="lede">Высокие рейтинги IMDb и Rotten Tomatoes, награды и хиты стриминга — готово для поста, сторис или сохранения.</p>
+      <div class="meta-row">
+        <span class="chip"><strong>8</strong> фильмов 2025</span>
+        <span class="chip"><strong>6</strong> фильмов 2026</span>
+        <span class="chip"><strong>7</strong> сериалов</span>
+        <span class="chip">от <strong>7.3</strong> IMDb</span>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Разделы">
+      <a href="#y2025">Фильмы 2025</a>
+      <a href="#y2026">Фильмы 2026</a>
+      <a href="#series">Сериалы</a>
+      <a href="#post">Текст поста</a>
+    </nav>
+
+    <section id="y2025">
+      <div class="section-head">
+        <h2>Фильмы 2025</h2>
+        <p>Оскар, хорроры, блокбастеры</p>
+      </div>
+      <div class="grid" data-section="2025"></div>
+    </section>
+
+    <section id="y2026">
+      <div class="section-head">
+        <h2>Фильмы 2026</h2>
+        <p>Эпики, sci-fi и рекорды рейтинга</p>
+      </div>
+      <div class="grid" data-section="2026"></div>
+    </section>
+
+    <section id="series">
+      <div class="section-head">
+        <h2>Сериалы</h2>
+        <p>Драмы, фэнтези, криминал</p>
+      </div>
+      <div class="grid" data-section="series"></div>
+    </section>
+
+    <section id="post" class="copy-block">
+      <h2>Готовый текст для поста</h2>
+      <pre id="postText">Что посмотреть: лучшее из 2025–2026
+
+Фильмы 2025
+• One Battle After Another — лучший фильм по «Оскару»
+• Sinners — хоррор с RT 97%
+• Hamnet — сильная драма (IMDb 7.8)
+• Demon Slayer: Infinity Castle — IMDb 8.3
+• F1 — блокбастер, который реально зашёл
+
+Фильмы 2026
+• The Odyssey — IMDb 8.4
+• Project Hail Mary — sci-fi с RT 95%
+• Spider-Man: Brand New Day — редкий высокий рейтинг у MCU
+• Obsession — хоррор-хит года
+• You Can See Everything — документалка с рекордом IMDb 9.4
+
+Сериалы
+• When Life Gives You Tangerines — IMDb 9.0
+• The Pitt — IMDb 8.9
+• A Knight of the Seven Kingdoms — фэнтези 2026 (8.6)
+• Adolescence — №1 у критиков в 2025
+• Dexter: Resurrection — IMDb 9.0
+
+Сохраняй и выбирай под настроение.</pre>
+      <div class="actions">
+        <button type="button" id="copyBtn">Скопировать текст</button>
+        <button type="button" class="secondary" id="copyShortBtn">Короткий топ-5</button>
+      </div>
+    </section>
+
+    <footer>
+      Постеры: Wikimedia / официальные промо. Рейтинги ориентировочные на ноябрь 2026.
+    </footer>
+  </div>
+
+  <script>
+    const items = [
+      { section: "2025", title: "One Battle After Another", imdb: "7.6", sub: "Триллер · Oscar Best Picture", file: "posters/obaa.jpg" },
+      { section: "2025", title: "Sinners", imdb: "7.5", sub: "Ужасы · RT 97%", file: "posters/sinners.jpg" },
+      { section: "2025", title: "Hamnet", imdb: "7.8", sub: "Драма · Хлоя Чжао", file: "posters/hamnet.jpeg" },
+      { section: "2025", title: "Sentimental Value", imdb: "7.7", sub: "Драма · RT 95%", file: "posters/sentimental.jpeg" },
+      { section: "2025", title: "Demon Slayer: Infinity Castle", imdb: "8.3", sub: "Аниме · RT 98%", file: "posters/demon.jpg" },
+      { section: "2025", title: "F1", imdb: "7.6", sub: "Спорт · блокбастер", file: "posters/f1.png" },
+      { section: "2025", title: "Weapons", imdb: "7.4", sub: "Ужасы · RT 93%", file: "posters/weapons.jpeg" },
+      { section: "2025", title: "Marty Supreme", imdb: "7.5", sub: "Драма · RT 93%", file: "posters/marty.jpg" },
+      { section: "2026", title: "The Odyssey", imdb: "8.4", sub: "Эпик · RT 94%", file: "posters/odyssey.jpg" },
+      { section: "2026", title: "Project Hail Mary", imdb: "8.2", sub: "Sci-fi · RT 95%", file: "posters/hailmary.jpg" },
+      { section: "2026", title: "Spider-Man: Brand New Day", imdb: "8.0", sub: "Супергерои · MCU", file: "posters/spiderman.jpg" },
+      { section: "2026", title: "Obsession", imdb: "7.8", sub: "Ужасы · RT 93%", file: "posters/obsession.jpeg" },
+      { section: "2026", title: "You Can See Everything", imdb: "9.4", sub: "Документалка · рекорд IMDb", file: "posters/ycse.jpeg" },
+      { section: "2026", title: "Toy Story 5", imdb: "7.3", sub: "Анимация · семья", file: "posters/toy.jpg" },
+      { section: "series", title: "When Life Gives You Tangerines", imdb: "9.0", sub: "Дорама · Netflix", file: "posters/tangerines.png" },
+      { section: "series", title: "The Pitt", imdb: "8.9", sub: "Медицина · HBO / Max", file: "posters/pitt.jpg" },
+      { section: "series", title: "A Knight of the Seven Kingdoms", imdb: "8.6", sub: "Фэнтези · HBO", file: "posters/knight.jpg" },
+      { section: "series", title: "Adolescence", imdb: "8.1", sub: "Драма · Metascore 91", file: "posters/adolescence.jpg" },
+      { section: "series", title: "Dexter: Resurrection", imdb: "9.0", sub: "Криминал · Paramount+", file: "posters/dexter.jpg" },
+      { section: "series", title: "Pluribus", imdb: "7.9", sub: "Sci-fi · Apple TV+", file: "posters/pluribus.jpg" },
+      { section: "series", title: "Daredevil: Born Again", imdb: "8.1", sub: "Супергерои · Disney+", file: "posters/daredevil.jpg" },
+    ];
+
+    const shortText = `Топ-5 must watch 2025–2026
+1. One Battle After Another
+2. The Odyssey
+3. When Life Gives You Tangerines
+4. The Pitt
+5. Project Hail Mary`;
+
+    function card(item) {
+      return `
+        <article class="poster">
+          <div class="frame">
+            <img src="${item.file}" alt="Постер: ${item.title}" loading="lazy" width="300" height="450" />
+            <span class="rating">IMDb ${item.imdb}</span>
+          </div>
+          <div class="info">
+            <h3>${item.title}</h3>
+            <p class="sub">${item.sub}</p>
+          </div>
+        </article>`;
+    }
+
+    document.querySelectorAll("[data-section]").forEach((grid) => {
+      const key = grid.getAttribute("data-section");
+      grid.innerHTML = items.filter((i) => i.section === key).map(card).join("");
+    });
+
+    async function copy(text, btn, label) {
+      try {
+        await navigator.clipboard.writeText(text);
+        const prev = btn.textContent;
+        btn.textContent = "Скопировано";
+        setTimeout(() => { btn.textContent = label || prev; }, 1400);
+      } catch {
+        btn.textContent = "Не удалось скопировать";
+      }
+    }
+
+    document.getElementById("copyBtn").addEventListener("click", (e) => {
+      copy(document.getElementById("postText").textContent, e.currentTarget, "Скопировать текст");
+    });
+    document.getElementById("copyShortBtn").addEventListener("click", (e) => {
+      copy(shortText, e.currentTarget, "Короткий топ-5");
+    });
+  </script>
+</body>
+</html>
